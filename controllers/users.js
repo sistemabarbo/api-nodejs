@@ -22,12 +22,17 @@ export const allusers = (req, res) => {
 };
 
 export const addUser = (req, res) => {
-    const q = "INSERT INTO usuarios(`nome`, `telefone`, `email`) VALUES(?)";
+    const q = "INSERT INTO usuarios(`nome`, `departamento`, `cpf`, `email`, `telefone`, `cidade`, `estado`, `unidade`) VALUES(?)";
 
     const values = [
         req.body.nome,
-        req.body.telefone,
+        req.body.departamento,
+        req.body.cpf,
         req.body.email,
+        req.body.telefone,
+        req.body.cidade,
+        req.body.estado,
+        req.body.unidade,
        
     ];
     db.query(q, [values], (err) => {
@@ -38,12 +43,17 @@ export const addUser = (req, res) => {
 };
 
 export const updateUser = (req, res) => {
-const q = "UPDATE usuarios SET `nome` = ?, `telefone` = ?, `email` = ? WHERE `id` = ?";
+const q = "UPDATE usuarios SET `nome` = ?, `departamento` = ?, `cpf` = ?, `email` = ?, `telefone` = ?, `cidade` = ?, `estado` = ?, `unidade` = ? WHERE `id` = ?";
 
 const values = [
-    req.body.nome,
-    req.body.telefone,
-    req.body.email,    
+        req.body.nome,
+        req.body.departamento,
+        req.body.cpf,
+        req.body.email,
+        req.body.telefone,
+        req.body.cidade,
+        req.body.estado,
+        req.body.unidade,   
 ];
 db.query(q, [...values, req.params.id], (err) => {
     if (err) return res.json(err);
