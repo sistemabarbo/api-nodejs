@@ -1,4 +1,4 @@
-import { db } from "../db.js";
+/*import { db } from "../db.js";
 
 export const getUsers = (_, res) => {
     const q = "SELECT * FROM colaboradores";
@@ -70,4 +70,4 @@ export const deleteUser = (req, res) => {
 
         return res.status(200).json("Usuário deletado com sucesso!!");
     });
-};
+};*/
